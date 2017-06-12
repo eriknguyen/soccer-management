@@ -1,9 +1,15 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import RaisedButton from "material-ui/RaisedButton";
 import AppBar from 'material-ui/AppBar';
 import { List } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
+import { createContainer } from 'meteor/react-meteor-data';
+import { Link } from 'react-router';
+
+// database - collection
+import { Players } from '../api/Players';
 
 import TeamList from "./TeamList";
 import TeamStats from "./TeamStats";
@@ -17,51 +23,6 @@ export default class App extends Component {
     this.state = {
       players: []
     };
-  }
-
-  componentWillMount() {
-    this.setState({
-      players: this.getPlayers()
-    })
-  }
-
-  getPlayers() {
-    return [
-      {
-        _id: 1,
-        name: 'Erik',
-        ballManipulation: 2,
-        kickingAbilities: 3,
-        passingAbilities: 1,
-        duelTackling: 1,
-        fieldCoverage: 3,
-        blockingAbilities: 2,
-        gameStrategy: 3,
-        playmakingRisks: 2
-      }, {
-        _id: 2,
-        name: 'Leo',
-        ballManipulation: 2,
-        kickingAbilities: 3,
-        passingAbilities: 1,
-        duelTackling: 1,
-        fieldCoverage: 3,
-        blockingAbilities: 2,
-        gameStrategy: 3,
-        playmakingRisks: 2
-      }, {
-        _id: 3,
-        name: 'David',
-        ballManipulation: 2,
-        kickingAbilities: 3,
-        passingAbilities: 1,
-        duelTackling: 1,
-        fieldCoverage: 3,
-        blockingAbilities: 2,
-        gameStrategy: 3,
-        playmakingRisks: 2
-      }
-    ]
   }
 
   renderPlayers() {
@@ -95,3 +56,13 @@ export default class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  players: PropTypes.array.isRequired
+}
+
+// export default createContainer(() => {
+//   return {
+//     players: Players.find({}, {sort: {name: 1}}).fetch()
+//   }
+// })
