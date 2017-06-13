@@ -6,7 +6,7 @@ import AppBar from 'material-ui/AppBar';
 import { List } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import { createContainer } from 'meteor/react-meteor-data';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 // database - collection
 import { Players } from '../api/Players';
@@ -15,7 +15,7 @@ import TeamList from "./TeamList";
 import TeamStats from "./TeamStats";
 import Player from "./Player";
 
-export default class App extends Component {
+export class App extends Component {
   constructor(props) {
     super(props);
 
@@ -26,7 +26,7 @@ export default class App extends Component {
   }
 
   renderPlayers() {
-    return this.state.players.map((player) => {
+    return this.props.players.map((player) => {
       return <TeamList key={player._id} player={player} />
     })
   }
@@ -42,7 +42,7 @@ export default class App extends Component {
           <div className="row">
             <div className="col s12 m7"><Player /></div>
             <div className="col s12 m5">
-              <h2>Team List</h2>
+              <h2>Team List</h2><Link to="/new" className="waves-effect waves-light btn">Add</Link>
               <Divider />
               <List>
                 {this.renderPlayers()}
@@ -61,8 +61,13 @@ App.propTypes = {
   players: PropTypes.array.isRequired
 }
 
-// export default createContainer(() => {
-//   return {
-//     players: Players.find({}, {sort: {name: 1}}).fetch()
-//   }
-// })
+// create a container, that will hold the state from meteor data
+export default createContainer(() => {
+  Meteor.subscribe('players');
+
+  return {
+    players: Players.find({}, {sort: {name: 1}}).fetch()
+  };
+}, App);
+
+
