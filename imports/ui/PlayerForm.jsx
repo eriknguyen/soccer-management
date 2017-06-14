@@ -15,7 +15,7 @@ export default class PlayerForm extends Component {
     event.preventDefault();
 
     // create and insert the object from the form
-    Players.insert({
+    let player = {
       name: this.refs.name.value,
       team: this.refs.team.value,
       ballManipulation: this.refs.ballManipulation.value,
@@ -27,12 +27,20 @@ export default class PlayerForm extends Component {
       gameStrategy: this.refs.gameStrategy.value,
       playmakingRisks: this.refs.playmakingRisks.value,
       notes: this.refs.notes.value,
-      createdAt: new Date()
+      createdAt: new Date(),
+      owner: Meteor.userId()
+    };
+
+    // meteor way to call a secure method to server
+    Meteor.call('insertPlayer', player, (error) => {
+      if (error) {
+        alert("Oops something went wrong: " + error.reason);
+      } else {
+        alert("Player added");
+      }
     });
 
-    console.log("Success player submitted!");
-
-    // 
+    // TODO: redirect the view to homepage after adding player
     // this.context.history.push('/');
   }
 

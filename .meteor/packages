@@ -18,6 +18,8 @@ ecmascript@0.8.0              # Enable ECMAScript2015+ syntax in app code
 shell-server@0.2.3            # Server-side component of the `meteor shell` command
 
 # manual added
-insecure@1.0.7
 aldeed:collection2
 react-meteor-data       # create container, load data and init state
+accounts-ui
+accounts-facebook
+facebook-config-ui
