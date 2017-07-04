@@ -35,7 +35,7 @@
         * Add bcrypt from npm: `yarn add bcrypt`
         * `npm rebuild` to rebuild all packages with new version of bcrypt
     * More:
-        * [meteor-useraccounts](https://github.com/meteor-useraccounts) for adding more functionalities to user account
+        * [`meteor-useraccounts`](https://github.com/meteor-useraccounts) for adding more functionalities to user account
 3. Securing DB transaction with server methods
     * Using `Meteor.methods()` to create a method that can be called from client
 
