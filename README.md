@@ -52,4 +52,17 @@
     * `deletePlayer` is implemented similarly
 
 3. Team stat with `Chart.js`
-    * 
+    * Install npm dependencies: [`react-chartjs-2`](https://github.com/gor181/react-chartjs-2)  and `chart.js`
+    * User a `Radar` chart component for team stats
+    * Calculate team stats from players's stats and display
+
+#### Next Steps
+* Explore other areas:
+    * Relay
+    * GraphQL
+    * React Native
+
+* App Improvement:
+    * Image uploader
+    * Better user feedback
+    * Improve navigation

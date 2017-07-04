@@ -85,7 +85,7 @@ export class App extends Component {
       );
     } else {
       return (
-        <TeamStats />
+        <TeamStats players={this.props.players} />
       )
     }
   }
@@ -98,6 +98,7 @@ export class App extends Component {
             title="Soccer Management"
             iconClassNameRight="muidocs-icon-navigation-expand-more"
             showMenuIconButton={false}
+            style={{backgroundColor: '#0277BD'}}
           >
             <AccountsWrapper />
           </AppBar>
@@ -117,8 +118,13 @@ export class App extends Component {
               </List>
               <Divider />
             </div>
-            <div className="col s12 m5">
+          </div>
+          <div className="row">
+            <div className="col s12">
+              <br />
+              <Divider />
               {this.showForm()}
+              <Divider />              
             </div>
           </div>
         </div>

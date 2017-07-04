@@ -157,7 +157,7 @@ export default class NewPlayer extends Component {
             </div>
             <div className="input-field col s6">
               <button
-                className="btn waves-effect waves-light"
+                className="btn waves-effect waves-light light-blue darken-3"
                 type="submit"
                 name="action"
               >
