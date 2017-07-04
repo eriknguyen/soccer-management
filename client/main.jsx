@@ -5,7 +5,7 @@ import injectTapEventPlugin from "react-tap-event-plugin";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import App from "../imports/ui/App";
-import PlayerForm from "../imports/ui/PlayerForm";
+import NewPlayer from "../imports/ui/NewPlayer";
 import Lost from "../imports/ui/Lost";
 
 injectTapEventPlugin();
@@ -15,7 +15,7 @@ Meteor.startup(() => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={App} />
-        <Route path="/new" component={PlayerForm} />
+        <Route path="/new" component={NewPlayer} />
         <Route component={Lost} />
       </Switch>
     </BrowserRouter>,

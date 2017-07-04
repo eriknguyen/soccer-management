@@ -2,14 +2,7 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { Players } from '../api/Players';
 
-export default class PlayerForm extends Component {
-  // static contextTypes = {
-  //   router: PropTypes.object
-  // }
-
-  // constructor(props, context) {
-  //   super(props, context);
-  // }
+export default class NewPlayer extends Component {
 
   submitPlayer(event) {
     event.preventDefault();

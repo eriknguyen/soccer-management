@@ -1,6 +1,23 @@
 # Soccer Management Webapp
 *A simple webapp built with React and Meteor*
 
+## //TODO
+* Redirect to main page after adding player. Use of `browserHistory` from `react-router` failed
+
+## Setup
+* Have the following installed:
+    * Meteor
+    * Node/NPM
+    * Yarn
+* Create base Meteor app: `$ meteor create soccer-management`
+* Install npm dependencies: `$ meteor npm install` (use `meteor` infront of `npm` command)
+* Meteor packages: Meteor will rebuild it's dependencies based on the list everytime running the app
+    * Must remove `autopublish` for encapsulating data & methods
+* Use Yarn for installing dependencies:
+    * `yarn` (same with `npm install`)
+    * `yarn add package_name` (add to package.json too)
+* Start app: `$ meteor`
+
 ## Notes
 1. Meteor data models
     * Using publish/subscribe to handle data passing
@@ -21,3 +38,18 @@
         * [meteor-useraccounts](https://github.com/meteor-useraccounts) for adding more functionalities to user account
 3. Securing DB transaction with server methods
     * Using `Meteor.methods()` to create a method that can be called from client
+
+#### Players CRUD & Team View
+1. State & player view
+    * Setup `state.currentPlayer` for app and `updateCurrentPlayer` method for updating player
+    * `updateCurrentPlayer` is passed as a prop to a `TeamList` component and set as `onClick`
+    * Update the `Player` view to display player that get from `App.state.currentPlayer`
+
+2. Editing players
+    * Add edit player button and `EditPlayer` component holding the edit form
+    * A `player` instance is passed to `EditPlayer` component for updating
+    * `EditPlayer` call server method `updatePlayer` to update it to db
+    * `deletePlayer` is implemented similarly
+
+3. Team stat with `Chart.js`
+    * 
