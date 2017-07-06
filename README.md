@@ -56,7 +56,7 @@
     * User a `Radar` chart component for team stats
     * Calculate team stats from players's stats and display
 
-#### Next Steps
+## Next Steps
 * Explore other areas:
     * Relay
     * GraphQL
